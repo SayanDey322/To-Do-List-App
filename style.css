@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  --btn-gradient: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  --card-bg: #ffffffcc;
+  --text: #1f2937;
+  --accent: #6366f1;
+  --completed: #9ca3af;
+  --danger: #ef4444;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --btn-gradient: linear-gradient(135deg, #2c5364 0%, #203a43 50%, #0f2027 100%);
+  --card-bg: #1e293bcc;
+  --text: #f3f4f6;
+  --accent: #818cf8;
+  --completed: #6b7280;
+  --danger: #f87171;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  transition: all 0.3s ease;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.todo-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 16px;
+  background: white;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.input-group button {
+  padding: 12px 20px;
+  background: var(--btn-gradient);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.input-group button:hover {
+  transform: scale(1.03);
+}
+
+.filter-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-group button {
+  flex: 1;
+  padding: 10px 0;
+  margin: 0 5px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.filter-group button.active {
+  background: var(--btn-gradient);
+  color: white;
+  transform: scale(1.05);
+}
+
+#task-list {
+  list-style: none;
+}
+
+.task {
+  background: white;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow);
+}
+
+.dark .task {
+  background: #2c2c2c;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  color: var(--completed);
+}
+
+.task span {
+  flex: 1;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.task .actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.actions .edit {
+  color: #3b82f6;
+}
+
+.actions .delete {
+  color: var(--danger);
+}
+
+.actions .edit:hover {
+  color: #2563eb;
+}
+
+.actions .delete:hover {
+  color: #dc2626;
+}
